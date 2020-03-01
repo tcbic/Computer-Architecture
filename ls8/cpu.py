@@ -163,11 +163,11 @@ class CPU:
             elif ir == PRN:
                 reg = self.ram_read(self.pc + 1)
                 self.reg[reg]
-                print(f"{self.reg[reg]} is in the register.")
+                print(f"{self.reg[reg]}")
                 self.pc += 2
 
             elif ir == HLT:
-                print("Operations have been halted.")
+                # print("Operations have been halted.")
                 go = False
                 self.pc += 1
 
@@ -192,21 +192,21 @@ class CPU:
                 self.pc += 3
 
             elif ir == JMP:
-                print(f"JMP register address: {operand_a}")
+                # print(f"JMP register address: {operand_a}")
                 self.pc = self.reg[operand_a]
-                print(f"JMP program counter address: {self.pc}")
+                # print(f"JMP program counter address: {self.pc}")
 
             elif ir == JEQ:
                 if self.flag[7] == 1:
                     self.pc = self.reg[operand_a]
                 else:
-                    print("else statement")
+                    # print("else statement")
                     self.pc += 2
 
             elif ir == JNE:
                 if self.flag[7] != 1:
                     self.pc = self.reg[operand_a]
-                    print(f"JNE program counter address: {self.pc}")
+                    # print(f"JNE program counter address: {self.pc}")
                 else:
                     self.pc += 2
 
